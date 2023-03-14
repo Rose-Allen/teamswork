@@ -1,0 +1,28 @@
+<!-- Git 
+! git init //создать репозиторий
+! git config --global или (local) user.name "Имя пользователя"
+! git config --global или (local) user.email здесьпочта
+! git status //статус репозитория
+! git add -A //добавляет все в файлы в репозиторий
+! git commit -a -m"Здесь пишештся что было сделано в этом комите"
+! git log //история комитов
+! git remote add origin https://github.com/Dinur-Temirbay-Functional-Programing/название проекта.git //Создание удаленного репозитория
+! git push -u origin main //Запушить все файлы в удаленный репозиторий
+* git branch -M main //Black lives Mater
+!git clone "путь к репозиторию" //для создание копий репозитория
+!git pull //полуить последние изменения с репозитория
+*.gitignore //Дефолт файл который не пушит ненужные данные в репозиторий
+-->
+
+
+
+
+<!--
+git branch //для просмотра ветки
+git branch <название ветки> // для создания ветки
+git push -f origin "комит":dinur //для отката
+git log --oneline //Удобно чекнуть комит
+git checkout <название комита> //перейти к комиту 
+-->
+
+
