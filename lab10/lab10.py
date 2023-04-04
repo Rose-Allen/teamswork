@@ -42,12 +42,10 @@ def get_input():
     return input("Введите число: ")
 
 def check_int(num):
-    # Проверяем, что значение num можно преобразовать в целое число
     if not str(num).isdigit():
         print("Ошибка: введите целое число")
         return None
 
-    # Преобразуем num в целое число и возвращаем результат
     return int(num)
 
 def calculate_square(num):
@@ -133,14 +131,11 @@ print("Уникальные символы в строке:", *unique)
 
 
 ''' Задача 2.2
-# Создаем список чисел
 my_list = [1, 3, 5, 7, 9, 11, 13]
-# Проверяем, есть ли в списке хотя бы одно четное число
 if any(x % 2 == 0 for x in my_list):
     print("Список содержит хотя бы одно четное число")
 else:
     print("Список не содержит четных чисел")
-# Проверяем, все ли числа в списке являются нечетными
 if all(x % 2 == 1 for x in my_list):
     print("Все числа в списке являются нечетными")
 else:
@@ -159,7 +154,7 @@ else:
 ''' Задача 2.3
 def rotate(matrix):
     return [list(row) for row in zip(*reversed(matrix))]
-# Пример использования функции
+
 my_matrix = [
     [1, 2, 3],
     [4, 5, 6],
@@ -184,26 +179,22 @@ print(rotated)
 
 
 ''' Задача 2.4
-def knapsack(weights, values, max_weight):
-    """Solve the knapsack problem using dynamic programming."""
+def backpack(weights, values, max_weight):
     n = len(weights)
-    # Initialize dp array
-    dp = [[0 for _ in range(max_weight + 1)] for _ in range(n + 1)]
-    # Fill dp array
+    bp = [[0 for _ in range(max_weight + 1)] for _ in range(n + 1)]
     for i in range(1, n + 1):
         for j in range(1, max_weight + 1):
             if weights[i-1] > j:
-                dp[i][j] = dp[i-1][j]
+                bp[i][j] = bp[i-1][j]
             else:
-                dp[i][j] = max(dp[i-1][j], dp[i-1][j-weights[i-1]] + values[i-1])
-    return dp[n][max_weight]
+                bp[i][j] = max(bp[i-1][j], bp[i-1][j-weights[i-1]] + values[i-1])
+    return bp[n][max_weight]
 
-# Пример использования функции
 weights = [2, 3, 4, 5]
 values = [3, 4, 5, 6]
 max_weight = 8
 
-max_value = knapsack(weights, values, max_weight)
+max_value = backpack(weights, values, max_weight)
 print(f"Максимальная стоимость, которую можно унести в рюкзаке: {max_value}")
 '''
 
@@ -227,18 +218,14 @@ print(f"Максимальная стоимость, которую можно �
 
 ''' Задача 2.5
 def matrix_operation(matrix1, matrix2, operation):
-    # Выполните матричную операцию над двумя матрицами.
     result = []
     if operation == "+":
-        # matrix addition
         for i, row in enumerate(matrix1):
             result.append([x + y for x, y in zip(row, matrix2[i])])
     elif operation == "-":
-        # matrix subtraction
         for i, row in enumerate(matrix1):
             result.append([x - y for x, y in zip(row, matrix2[i])])
     elif operation == "*":
-        # matrix multiplication
         for i in range(len(matrix1)):
             row = []
             for j in range(len(matrix2[0])):
@@ -251,7 +238,7 @@ def matrix_operation(matrix1, matrix2, operation):
 
 matrix1 = [[1, 2], [3, 4]]
 matrix2 = [[5, 6], [7, 8]]
-print(matrix_operation(matrix1, matrix2, "+"))  # Output: [[6, 8], [10, 12]]
-print(matrix_operation(matrix1, matrix2, "-"))  # Output: [[-4, -4], [-4, -4]]
-print(matrix_operation(matrix1, matrix2, "*"))  # Output: [[19, 22], [43, 50]]
+print(matrix_operation(matrix1, matrix2, "+"))
+print(matrix_operation(matrix1, matrix2, "-"))
+print(matrix_operation(matrix1, matrix2, "*"))
 '''
